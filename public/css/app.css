@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@charset "UTF-8";
+@charset "UTF-8";
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -8359,19 +8357,21 @@ button.close {
   background-size: cover;
   width: 100%;
   height: 100%;
-  margin-top: -20px;
+  margin: auto;
   position: fixed;
 }
 
 .login {
-  margin: 10% 25%;
-=======
+  margin: 10% 20%;
+}
+
+@media screen and (min-width: 480px) {
+  .login {
+    margin: 10% 25%;
+  }
+}
+
 body {
   background-color: #ecf0f5;
->>>>>>> 52f3871a0fcb1c009588dca3c17d1d2edfdbbf15
-=======
-body {
-  background-color: #ecf0f5;
->>>>>>> 52f3871a0fcb1c009588dca3c17d1d2edfdbbf15
 }
 
