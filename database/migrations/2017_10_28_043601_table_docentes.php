@@ -20,8 +20,8 @@ class TableDocentes extends Migration
             $table->string('apellidos');
             $table->string('identificacion')->unique();
             $table->enum('tipo_identificacion',['Cédula','RUC','Pasaporte']);
-            $table->string('email_personal');
-            $table->string('email_institucional');
+            $table->string('email_personal')->nullable();
+            $table->unique('email_institucional');
             $table->string('celular');
             $table->string('telefono')->nullable();
             $table->string('nacionalidad');

@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ciclo extends Model
+class Periodo extends Model
 {
     protected $fillable = [
         'año',
-        'ciclo',
+        'periodo',
         'estado',
-        'fechaInicio',
-        'fechaFinal',
+        'fecha_inicio',
+        'fecha_final',
     ];
 }

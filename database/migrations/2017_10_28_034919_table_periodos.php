@@ -13,10 +13,10 @@ class TableCiclos extends Migration
      */
     public function up()
     {
-        Schema::create('ciclos',function(Blueprint $table){
+        Schema::create('periodos',function(Blueprint $table){
             $table->increments('id');
             $table->integer('año');
-            $table->string('ciclo');
+            $table->enum('periodo',['Periodo_1','Periodo_2']);
             $table->enum('estado',['Cerrado','Vigente']);
             $table->date('fecha_inicio');
             $table->date('fecha_final');
