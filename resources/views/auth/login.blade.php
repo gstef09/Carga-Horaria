@@ -1,11 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+<div class="fondo-uleam">
+    <!-- <div class="row">
+        <div class="col-md-8 col-md-offset-2"> -->
+            <div class="panel panel-default login">
+                <div class="panel-heading">Login</div>
+=======
+=======
+>>>>>>> 52f3871a0fcb1c009588dca3c17d1d2edfdbbf15
     <div class="content">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading text-center">Inicia Sesión</div>
+<<<<<<< HEAD
+>>>>>>> 52f3871a0fcb1c009588dca3c17d1d2edfdbbf15
+=======
+>>>>>>> 52f3871a0fcb1c009588dca3c17d1d2edfdbbf15
 
                     <div class="panel-body">
                         <form class="form-horizontal" method="POST" action="{{ route('login') }}">
@@ -64,6 +79,15 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
+        <!-- </div>
+    </div> -->
+</div>
+=======
         </div>
     </div>
+<<<<<<< HEAD
+>>>>>>> 52f3871a0fcb1c009588dca3c17d1d2edfdbbf15
+=======
+>>>>>>> 52f3871a0fcb1c009588dca3c17d1d2edfdbbf15
 @endsection
