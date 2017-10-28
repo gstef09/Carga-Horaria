@@ -21,7 +21,7 @@ class TableDocentes extends Migration
             $table->string('identificacion')->unique();
             $table->enum('tipo_identificacion',['Cédula','RUC','Pasaporte']);
             $table->string('email_personal')->nullable();
-            $table->unique('email_institucional');
+            $table->string('email_institucional');
             $table->string('celular');
             $table->string('telefono')->nullable();
             $table->string('nacionalidad');
@@ -29,7 +29,7 @@ class TableDocentes extends Migration
             $table->string('direccion');
             $table->enum('tipo_contrato',['Tiempo_Completo','Medio_Tiempo']);
             $table->enum('estado',['Contratado','Culminado','Renovado']);
-            $table->timestamp();
+            $table->timestamps();
 
         });
             
