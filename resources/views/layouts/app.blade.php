@@ -90,12 +90,12 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
-                <span>Almacén</span>
+                <span>Docentes</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="articulo.php"><i class="fa fa-circle-o"></i> Artículos</a></li>
-                <li><a href="categoria.php"><i class="fa fa-circle-o"></i> Categorías</a></li>
+                <li><a href="{{ url('/docentes') }}"><i class="fa fa-circle-o"></i> Lista de Docentes</a></li>
+                <li><a href="{{ url('/docentes/create') }}"><i class="fa fa-circle-o"></i> Agregar Docente</a></li>
               </ul>
             </li>
             
@@ -171,7 +171,6 @@
 <div class="content-wrapper">
     @yield('content')
 </div>
-
     <!-- jQuery 2.1.4 -->
     <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
     <!-- Bootstrap 3.3.5 -->

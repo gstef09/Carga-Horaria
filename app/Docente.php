@@ -22,4 +22,9 @@ class Docente extends Model
         'tipo_contrato',
         'estado',
     ];
+
+    public function nombreCompleto()
+    {
+        return $this->nombres . $this->apellidos;
+    }
 }
