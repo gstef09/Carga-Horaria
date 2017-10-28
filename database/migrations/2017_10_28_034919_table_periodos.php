@@ -31,6 +31,6 @@ class TableCiclos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ciclos');
+        Schema::dropIfExists('periodos');
     }
 }
