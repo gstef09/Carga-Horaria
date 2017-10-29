@@ -3,7 +3,8 @@
 @section('content')
     <div class="content">
         
-            <form action="{{ url('/docentes') }}" method="POST"></form>
+            <form action="{{ url('/docentes') }}" method="POST">
+                {!! csrf_field() !!}
                 <div class="row">
                     <div class="col-md-4 col-md-offset-2">
                         <div class="form-group">
@@ -61,14 +62,14 @@
                     <div class="col-md-4 col-md-offset-2">
                         <div class="form-group">
                             <label for="correo_personal">correo Personal:</label>
-                            <input type="email" class="form-control" name="correo_personal" id="correo_personal" placeholder="Correo Personal">
+                            <input type="email" class="form-control" name="email_personal" id="correo_personal" placeholder="Correo Personal">
                         </div>
                     </div>
 
                     <div class="col-md-4 ">
                         <div class="form-group">
                             <label for="correo_insttucional">Correo Institucional:</label>
-                            <input type="email" class="form-control" name="correo_insttucional" id="correo_insttucional" placeholder="Correo Intitucional">
+                            <input type="email" class="form-control" name="email_institucional" id="correo_insttucional" placeholder="Correo Intitucional">
                         </div>
                     </div>
                 </div>

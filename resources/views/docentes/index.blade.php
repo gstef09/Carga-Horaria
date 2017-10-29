@@ -16,6 +16,7 @@
                             <td>Correo</td>
                             <td>Tipo de Contrato</td>
                             <td>Estado</td>
+                            <td>Acciones</td>
                         </tr>
                     </thead>
 
@@ -27,6 +28,11 @@
                             <td>{{ $d->email_institucional  }}</td>
                             <td>{{ $d->tipo_contrato  }}</td>
                             <td>{{ $d->estado  }}</td>
+                            <td>
+                                <a href="#"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
