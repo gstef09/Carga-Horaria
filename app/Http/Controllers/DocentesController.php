@@ -6,6 +6,7 @@ use App\Docente;
 use Illuminate\Http\Request;
 use App\Http\Requests\DocentesRequest;
 use Maatwebsite\Excel\Facades\Excel;
+use \DB;
 
 class DocentesController extends Controller
 {
@@ -130,10 +131,16 @@ class DocentesController extends Controller
        
         Excel::create('Docentes', function($excel) {
             $excel->sheet('Docentes FACCI', function($sheet) {
-               
-                $docentes = Docente::all();                
+                $filas = DB::table('docentes')->count();
+                $docentes = Docente::all();              
                 $sheet->fromArray($docentes);
+                $sheet->setBorder('A1:O'.($filas +1 ).'', 'thin');
                 $sheet->setOrientation('landscape');
+                $sheet->row(1, function($row) {
+                    
+                         $row->setBackground('##209f36');
+                    
+                    });
             });
         })->export('xlsx');
     }
