@@ -41,7 +41,7 @@ class DocentesController extends Controller
         $docente = new Docente;
         if($request->has('email_personal'))
         {
-            dd($request->email_personal);
+            //dd($request->email_personal);
             $docente->email_personal = $request->email_personal;
         }
         $docente->abreviatura = $request->abreviatura;
@@ -72,7 +72,8 @@ class DocentesController extends Controller
      */
     public function show($id)
     {
-        //
+        $docente = Docente::findOrFail($id);
+        return view('docentes.show', ['docente' => $docente]);
     }
 
     /**
@@ -83,7 +84,8 @@ class DocentesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $docente = Docente::findOrFail($id);
+        return view('docentes.edit', ['docente' => $docente]);
     }
 
     /**
@@ -95,17 +97,31 @@ class DocentesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $docente = Docente::findOrFail($id);
+        
+        if($request->identificacion != $docente->identificacion)
+        {
+            // dd($request->identificacion);
+            $docente->identificacion = $request->identificacion;
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $docente->abreviatura = $request->abreviatura;
+        $docente->nombres = $request->nombres;
+        $docente->apellidos = $request->apellidos;        
+        $docente->tipo_identificacion = $request->tipo_identificacion;
+        $docente->email_personal = $request->email_personal;
+        $docente->email_institucional = $request->email_institucional;
+        $docente->celular = $request->celular;
+        $docente->telefono = $request->telefono;
+        $docente->nacionalidad = $request->nacionalidad;
+        $docente->residencia = $request->residencia;
+        $docente->direccion = $request->direccion;
+        $docente->tipo_contrato = $request->tipo_contrato;
+        $docente->estado = $request->estado;
+
+        if($docente->save())
+            return redirect('/docentes');
+        else
+            return redirect()->back();
     }
 }

@@ -20,4 +20,4 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::resource('docentes', 'DocentesController');
+Route::resource('docentes', 'DocentesController', ['except' => ['destroy']]);

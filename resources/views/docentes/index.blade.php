@@ -30,9 +30,8 @@
                                 <td>{{ $d->tipo_contrato  }}</td>
                                 <td>{{ $d->estado  }}</td>
                                 <td>
-                                    <a href="#"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
+                                    <a href="{{ url('docentes/'. $d->id) }}"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></a>
+                                    <a href="{{ url('docentes/'. $d->id . '/edit') }}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                             @endforeach
