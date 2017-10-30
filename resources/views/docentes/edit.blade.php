@@ -9,7 +9,7 @@
             {!! csrf_field() !!}                
             
             @if (count($errors) > 0)
-                @include('docentes.errorsModal')
+                @include('layouts.errorsModal')
             @endif
             
             <div class="row">

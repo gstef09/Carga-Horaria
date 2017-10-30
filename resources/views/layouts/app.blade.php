@@ -102,12 +102,12 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-th"></i>
-                <span>Compras</span>
+                <span>Periodo</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="ingreso.php"><i class="fa fa-circle-o"></i> Ingresos</a></li>
-                <li><a href="proveedor.php"><i class="fa fa-circle-o"></i> Proveedores</a></li>
+                <li><a href="{{url('/periodos')}}"><i class="fa fa-circle-o"></i> Lista de Periodos</a></li>
+                <li><a href="{{url('/periodos/create')}}"><i class="fa fa-circle-o"></i> Agregar Periodo</a></li>
               </ul>
             </li>
             <li class="treeview">
