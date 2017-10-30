@@ -125,6 +125,10 @@ var app = new Vue({
   el: '#app'
 });
 
+$(document).ready(function () {
+  $("#mostrarmodal").modal("show");
+});
+
 /***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {

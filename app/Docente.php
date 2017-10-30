@@ -25,6 +25,6 @@ class Docente extends Model
 
     public function nombreCompleto()
     {
-        return $this->nombres . $this->apellidos;
+        return $this->nombres .' '. $this->apellidos;
     }
 }
