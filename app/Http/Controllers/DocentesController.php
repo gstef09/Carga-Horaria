@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Docente;
 use Illuminate\Http\Request;
 use App\Http\Requests\DocentesRequest;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DocentesController extends Controller
 {
@@ -123,5 +124,17 @@ class DocentesController extends Controller
             return redirect('/docentes');
         else
             return redirect()->back();
+    }
+    public function excel()
+    {        
+       
+        Excel::create('Docentes', function($excel) {
+            $excel->sheet('Docentes FACCI', function($sheet) {
+               
+                $docentes = Docente::all();                
+                $sheet->fromArray($docentes);
+                $sheet->setOrientation('landscape');
+            });
+        })->export('xlsx');
     }
 }

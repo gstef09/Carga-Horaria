@@ -3,11 +3,15 @@
 @section('content')
 <div class="content">
     <div class="row">
+        
         <div class="col-md-10 col-md-offset-1">
+        <a href="{{ route('docentes.excel') }}" class="btn btn-success pull-right ">
+            Exportar a Excel
+        </a>
+        
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><strong>Lista de Docentes</strong></div>
-        
-                <!-- Table -->
+                 <!-- Table -->
                 <div class="table-responsive">
                     <table class="table table-hover table-condensed table-striped">
                         <thead>

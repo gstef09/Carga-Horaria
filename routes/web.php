@@ -21,3 +21,4 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('docentes', 'DocentesController', ['except' => ['destroy']]);
+Route::get('descargar-docentes', 'DocentesController@excel')->name('docentes.excel');
