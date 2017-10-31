@@ -5,9 +5,8 @@
         <div class="col-sm-6 col-sm-offset-3">
             <div class="panel panel-default">
                 <div class="panel-body text-justify">
-                    <p class="text-center"><strong>{{ $docente->nombreCompleto() }}</strong></p>
+                    <p class="text-center"><strong> {{ $docente->abreviatura }} {{ $docente->nombreCompleto() }}</strong></p>
                     <p><strong>{{ $docente->tipo_identificacion}}:</strong> {{ $docente->identificacion }}</p>
-                    <p><strong>Abreviatura:</strong> {{ $docente->abreviatura }}</p>
                     <p><strong>Correo Institucional</strong> {{ $docente->email_institucional }}</p>
                     <p><strong>Correo Personal </strong> {{ $docente->email_personal }}</p>
                     <p><strong>Celular:</strong> {{ $docente->celular }}</p>

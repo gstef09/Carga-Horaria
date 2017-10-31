@@ -15,7 +15,7 @@
                 <div class="table-responsive">
                     <table class="table table-hover table-condensed table-striped">
                         <thead>
-                            <tr>
+                            <tr class="info cabeceras">
                                 <td>Nombres</td>
                                 <td>Identificación</td>
                                 <td>Correo</td>
