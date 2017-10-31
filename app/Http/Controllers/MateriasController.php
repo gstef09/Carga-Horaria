@@ -15,7 +15,7 @@ class MateriasController extends Controller
     public function index()
     {
         $materias = Materia::paginate(10);
-        return view('matrias.index',['materias'=>$materias]);
+        return view('materias.index',['materias'=>$materias]);
     }
 
     /**

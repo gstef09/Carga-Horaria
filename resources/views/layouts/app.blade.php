@@ -84,8 +84,14 @@
             <li class="header"></li>
             <li>
               <a href="#">
-                <i class="fa fa-tasks"></i> <span>Escritorio</span>
+                <i class="fa fa-tasks"></i>
+                 <span>Materias</span>
+                 <i class="fa fa-angle-left pull-right"></i>
               </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url('/materias') }}"><i class="fa fa-circle-o"></i> Lista de Materias</a></li>
+                <li><a href="{{ url('/materias/create') }}"><i class="fa fa-circle-o"></i> Agregar Materia</a></li>
+              </ul>
             </li>
             <li class="treeview">
               <a href="#">

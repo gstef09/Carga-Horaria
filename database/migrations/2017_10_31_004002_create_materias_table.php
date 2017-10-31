@@ -18,7 +18,7 @@ class CreateMateriasTable extends Migration
             $table->string('codigo_materia');
             $table->string('materia');
             $table->enum('nivel',['Primero','Segundo', 'Tercero','Cuarto','Quinto','Sexto','Séptimo','Octavo','Noveno'.'Décimo']);
-            $creditos->integer();
+            $table->integer('creditos');
             $table->enum('tipo_materia',['Formación_Básica','Formación_Humana','Seminarios_Curriculres','Formación_Profesional']);
             $table->timestamps();
            
