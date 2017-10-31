@@ -14,7 +14,7 @@
                     <p><strong>Residencia:</strong> {{ $docente->residencia }}</p>
                     <p><strong>Direccion:</strong> {{ $docente->direccion }}</p>
                     <p><strong>Nacionalidad:</strong> {{ $docente->nacionalidad }}</p>
-                    <p><strong>Tipo de Contrato:</strong> {{ $docente->tipo_contrato }}</p>
+                    <p><strong>Tipo de Contrato:</strong> {{ $docente->contrato() }}</p>
                     <p><strong>Estado de Contato:</strong> {{ $docente->estado }}</p>
                 </div>
             </div>

@@ -30,4 +30,9 @@ class Docente extends Model
     {
         return $this->nombres .' '. $this->apellidos;
     }
+    public function contrato()
+    {
+        return str_replace("_", " ", $this->tipo_contrato);
+    }
+
 }

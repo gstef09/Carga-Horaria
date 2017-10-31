@@ -31,7 +31,7 @@
                                 <td>{{ $d->nombreCompleto() }}</td>
                                 <td>{{ $d->identificacion }}</td>
                                 <td>{{ $d->email_institucional  }}</td>
-                                <td>{{ $d->tipo_contrato  }}</td>
+                                <td>{{ $d->contrato()  }}</td>
                                 <td>{{ $d->estado  }}</td>
                                 <td>
                                     <a href="{{ url('docentes/'. $d->id) }}"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></a>
