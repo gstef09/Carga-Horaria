@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h3 class="text-center"><strong>Crear Nueva Materia</strong></h3>
+<h3 class="text-center"><strong>Editar Materia</strong></h3>
     <div class="content">
         
     <form action="{!! action('MateriasController@update', ['id' => $materia->id]) !!}" method="POST">

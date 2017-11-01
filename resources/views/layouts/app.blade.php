@@ -84,7 +84,7 @@
             <li class="header"></li>
             <li>
               <a href="#">
-                <i class="fa fa-tasks"></i>
+                <i class="fa fa-book"></i>
                  <span>Materias</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
@@ -118,18 +118,18 @@
             </li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-shopping-cart"></i>
-                <span>Ventas</span>
+                <i class="fa fa-building-o"></i>
+                <span>Cursos y Paralelos</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="venta.php"><i class="fa fa-circle-o"></i> Ventas</a></li>
-                <li><a href="cliente.php"><i class="fa fa-circle-o"></i> Clientes</a></li>
+                <li><a href="{{ url('/cursos') }}"><i class="fa fa-circle-o"></i> Cursos</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Paraleloss</a></li>
               </ul>
             </li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-folder"></i> <span>Acceso</span>
+                <i class="fa fa-users"></i> <span>Acceso</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
