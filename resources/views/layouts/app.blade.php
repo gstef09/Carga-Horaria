@@ -25,156 +25,93 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="hold-transition skin-green sidebar-mini">
-<div class="wrapper" id="app"></div>
-      <header class="main-header">
-        <!-- Logo -->
-        <a href="{{ url('/') }}" class="logo">
-          <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini">{{ config('app.name', 'CHDF') }}</span>
-          <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>{{ config('app.name', 'CHDF') }}</b></span>
-        </a>
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" role="navigation">
-          <!-- Sidebar toggle button-->
-          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Navegación</span>
+<body>
+
+<div id="app">
+<nav class="navbar navbar-default menu">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">{{ config('app.name', 'CHDF') }}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-book"></i>
+          <span>Materias</span>
+          <span class="caret"></span
           </a>
-          <!-- Navbar Right Menu -->
-          <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-              <!-- Messages: style can be found in dropdown.less-->
-              
-              <!-- User Account: style can be found in dropdown.less -->
-              <li class="dropdown user user-menu">
-                @if(Auth::check())
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                @endif
-              </li>
-              
-            </ul>
-          </div>
-        </nav>
-      </header>
-      <!-- Left side column. contains the logo and sidebar -->
-      <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-          <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">
-            <li class="header"></li>
-            <li>
-              <a href="#">
-                <i class="fa fa-book"></i>
-                 <span>Materias</span>
-                 <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="{{ url('/materias') }}"><i class="fa fa-circle-o"></i> Lista de Materias</a></li>
-                <li><a href="{{ url('/materias/create') }}"><i class="fa fa-circle-o"></i> Agregar Materia</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-laptop"></i>
-                <span>Docentes</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="{{ url('/docentes') }}"><i class="fa fa-circle-o"></i> Lista de Docentes</a></li>
-                <li><a href="{{ url('/docentes/create') }}"><i class="fa fa-circle-o"></i> Agregar Docente</a></li>
-              </ul>
-            </li>
-            
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-th"></i>
-                <span>Periodo</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="{{url('/periodos')}}"><i class="fa fa-circle-o"></i> Lista de Periodos</a></li>
-                <li><a href="{{url('/periodos/create')}}"><i class="fa fa-circle-o"></i> Agregar Periodo</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-building-o"></i>
-                <span>Cursos y Paralelos</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="{{ url('/cursos') }}"><i class="fa fa-circle-o"></i> Cursos</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Paraleloss</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-users"></i> <span>Acceso</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="{{ url('/usuarios') }}"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-                <li><a href="permiso.php"><i class="fa fa-circle-o"></i> Permisos</a></li>
-                
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-bar-chart"></i> <span>Consulta Compras</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="consultacompras.php"><i class="fa fa-circle-o"></i> Consulta Compras</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-bar-chart"></i> <span>Consulta Ventas</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="consultaventas.php"><i class="fa fa-circle-o"></i> Consulta Ventas</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-plus-square"></i> <span>Ayuda</span>
-                <small class="label pull-right bg-red">PDF</small>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
-                <small class="label pull-right bg-yellow">IT</small>
-              </a>
-            </li>
-            
+          <ul class="dropdown-menu">
+            <li><a href="{{ url('/materias') }}"><i class="fa fa-circle-o"></i> Lista de Materias</a></li>
+            <li><a href="{{ url('/materias/create') }}"><i class="fa fa-circle-o"></i> Agregar Materia</a></li>
           </ul>
-        </section>
-        <!-- /.sidebar -->
-      </aside>
-</div>
-<div class="content-wrapper">
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-laptop"></i>
+          <span>Docentes</span>
+          <span class="caret"></span
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ url('/docentes') }}"><i class="fa fa-circle-o"></i> Lista de Docentes</a></li>
+            <li><a href="{{ url('/docentes/create') }}"><i class="fa fa-circle-o"></i> Agregar Docente</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-th"></i>
+          <span>Periodos</span>
+          <span class="caret"></span
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ url('/periodos') }}"><i class="fa fa-circle-o"></i> Lista de Periodos</a></li>
+            <li><a href="{{ url('/periodos/create') }}"><i class="fa fa-circle-o"></i> Agregar Periodo</a></li>
+          </ul>
+        </li>
+       
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-building-o"></i>
+          <span>Cursos y Paralelos</span>
+          <span class="caret"></span
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ url('/cursos') }}"><i class="fa fa-circle-o"></i> Cursos</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Paralelos</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-users"></i>
+          <span>Acceso</span>
+          <span class="caret"></span
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ url('/usuarios') }}"><i class="fa fa-circle-o"></i> Usuarios</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Paralelos</a></li>
+          </ul>
+        </li>
+
+      </ul>
+        </li>
+        
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+ 
+<div>
     @yield('content')
 </div>
     <!-- jQuery 2.1.4 -->

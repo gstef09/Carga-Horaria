@@ -8379,3 +8379,19 @@ body {
   font-weight: bold;
 }
 
+.menu {
+  background: #04a33f !important;
+  margin: auto;
+}
+
+.navbar-brand,
+.dropdown > *,
+.dropdown-menu li a {
+  color: #fff !important;
+  background: #04a33f !important;
+}
+
+.dropdown-menu li:hover {
+  background: #066f2d !important;
+}
+
