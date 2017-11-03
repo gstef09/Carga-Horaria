@@ -8391,7 +8391,30 @@ body {
   background: #04a33f !important;
 }
 
-.dropdown-menu li:hover {
-  background: #066f2d !important;
+.menu,
+.navbar-collapse {
+  border-color: #0c8c24;
+}
+
+.navbar-brand,
+.dropdown > *,
+.dropdown-menu li a {
+  color: #fff !important;
+  background: #04a33f !important;
+}
+
+.navbar-brand:hover,
+.navbar-toggle:hover,
+.dropdown a:hover,
+.dropdown-menu li a:hover {
+  background: rgba(101, 230, 129, 0.9) !important;
+}
+
+body {
+  background-color: #ecf0f5;
+  background-image: url(/images/logo-uleam.png?87937cae1b7f6f80a1fcc57bf4a61acb);
+  background-repeat: no-repeat;
+  background-position: 48.5% 300px;
+  background-size: 320px;
 }
 
