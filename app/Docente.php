@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Docente extends Model
 {
-    
+
     protected $fillable = [
         'abreviatura',
         'nombres',
@@ -26,9 +26,9 @@ class Docente extends Model
 
     ];
 
-    
-    
-    protected $hidden = ['created_at','updated_at']; 
+
+
+    protected $hidden = ['created_at','updated_at'];
 
     public function nombreCompleto()
     {
@@ -39,8 +39,6 @@ class Docente extends Model
         return str_replace("_", " ", $this->tipo_contrato);
     }
 
-    public function facultad(){
-        return $this->belongsTo('App\Facultad');
-    }
+  
 
 }

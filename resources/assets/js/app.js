@@ -20,67 +20,6 @@ window.toastr = require('toastr');
 
 // Vue.component('example', require('./components/Example.vue'));
 
-const facultades = new Vue({
-    el: document.querySelector('#facultades'),
-    created: function(){
-        this.obtenerFacultades();
-    },
-    data:{
-        facultades:[],
-        newFacultad:'',
-        errors:[],
-        fillFacultad:{'id':0, 'nombre':''}
-    },
-    methods:{
-        obtenerFacultades: function(){
-            let url = '../faculties/';
-            axios.get(url).then(response => {
-                this.facultades = response.data;
-               
-            });
-        },
-        editarFacultad: function(facultad){
-            this.fillFacultad.id = facultad.id;
-            this.fillFacultad.nombre = facultad.nombre;
-            $('#editarFacultad').modal('show');
-        },
-        actualizarFacultad: function(id){
-            let url = `./${id}`;
-            axios.put(url,this.fillFacultad).then(response =>{
-                this.obtenerFacultades();
-                this.fillFacultad = {'id':'', 'keep':''};
-                this.errors = [];
-                $('#editarFacultad').modal('hide');
-                toastr.success('El nombre de la facultad ha sido actualizado');
-               
-
-            }).catch(error=>{
-                this.errors = error;
-            });
-        },
-        eliminarFacultad: function(id){
-            let url = `/facultades/${id}`;
-            let t = this;
-            toastr.info("<br /><button type='button' id='confirmationDelete' class='btn clear'>Aceptar</button>",'¿Se requiere confirmación para eliminar?',
-            {
-                closeButton: false,
-                allowHtml: true,
-                onShown: function (toast) {
-                    $("#confirmationDelete").click(function(){
-                        axios.delete(url).then(response =>{
-                            
-                            t.obtenerFacultades();
-                            
-                        });
-                    });
-                  }
-            });
-            
-        }
-
-    }
-});
-
 const carreras = new Vue({
     el: document.querySelector('#carreras'),
     created: function(){
@@ -90,8 +29,7 @@ const carreras = new Vue({
         carreras:[],
         facultades:[],
         nombre:'',
-        facultad_id:0,
-        fillCarrera:{'id':0,'nombre':'','facultad_id':0},
+        fillCarrera:{'id':0,'nombre':''},
         errors:[]
     },
     methods:{
@@ -99,11 +37,9 @@ const carreras = new Vue({
             let url = '/carreras';
             axios.post(url,{
                 nombre: this.nombre,
-                facultad_id: this.facultad_id,
             }).then((response)=>{
                 this.obtenerCarreras();
                 this.nombre = '';
-                this.facultad_id=0;
                 this.errors = [];
                 $('#crearCarrera').modal('hide');
                 toastr.success('La carrera se guardó correctamente')
@@ -115,14 +51,13 @@ const carreras = new Vue({
             let url = '../carriers';
             axios.get(url).then(response => {
                 this.carreras = response.data;
-                
-               
+
+
             });
         },
         editarCarrera:function(carrera){
             this.fillCarrera.id = carrera.id;
             this.fillCarrera.nombre = carrera.nombre;
-            $('#facultad_id').val(carrera.facultad_id);
             $('#editarCarrera').modal('show');
         },
         eliminarCarrera: function(id){
@@ -135,14 +70,14 @@ const carreras = new Vue({
                 onShown: function (toast) {
                     $("#confirmationDelete").click(function(){
                         axios.delete(url).then(response =>{
-                            
+
                             t.obtenerCarreras();
-                            
+
                         });
                     });
                   }
             });
-            
+
         }
     }
 });
@@ -150,6 +85,6 @@ const carreras = new Vue({
 $(document).ready(function()
 {
    $("#mostrarmodal").modal("show");
-   
-   
+
+
 });

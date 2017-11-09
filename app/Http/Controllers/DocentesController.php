@@ -18,8 +18,8 @@ class DocentesController extends Controller
      */
     public function index()
     {
-        $docentes = Docente::paginate(10);
-        return view('docentes.index', ['docentes' => $docentes]);
+        $docentes = Docente::all();
+        return view('docentes.index',['docentes' => $docentes]);
     }
 
     /**
@@ -29,8 +29,7 @@ class DocentesController extends Controller
      */
     public function create()
     {
-        $facultades = Facultad::all();
-        return view('docentes.create',['facultades'=> $facultades]);
+        return view('docentes.create');
     }
 
     /**
@@ -60,7 +59,6 @@ class DocentesController extends Controller
         $docente->direccion = $request->direccion;
         $docente->tipo_contrato = $request->tipo_contrato;
         $docente->estado = $request->estado;
-        $docente->facultad_id = $request->facultad_id;
         if($docente->save())
             return redirect('/docentes');
         else
@@ -101,7 +99,7 @@ class DocentesController extends Controller
     public function update(Request $request, $id)
     {
         $docente = Docente::findOrFail($id);
-        
+
         if($request->identificacion != $docente->identificacion)
         {
             // dd($request->identificacion);
@@ -110,7 +108,7 @@ class DocentesController extends Controller
 
         $docente->abreviatura = $request->abreviatura;
         $docente->nombres = $request->nombres;
-        $docente->apellidos = $request->apellidos;        
+        $docente->apellidos = $request->apellidos;
         $docente->tipo_identificacion = $request->tipo_identificacion;
         $docente->email_personal = $request->email_personal;
         $docente->email_institucional = $request->email_institucional;
@@ -128,19 +126,19 @@ class DocentesController extends Controller
             return redirect()->back();
     }
     public function excel()
-    {        
-       
+    {
+
         Excel::create('Docentes', function($excel) {
             $excel->sheet('Docentes FACCI', function($sheet) {
                 $filas = DB::table('docentes')->count();
-                $docentes = Docente::all();              
+                $docentes = Docente::all();
                 $sheet->fromArray($docentes);
                 $sheet->setBorder('A1:O'.($filas +1 ).'', 'thin');
                 $sheet->setOrientation('landscape');
                 $sheet->row(1, function($row) {
-                    
+
                          $row->setBackground('##209f36');
-                    
+
                     });
             });
         })->export('xlsx');

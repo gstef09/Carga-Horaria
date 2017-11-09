@@ -991,65 +991,6 @@ window.toastr = __webpack_require__(33);
 
 // Vue.component('example', require('./components/Example.vue'));
 
-var facultades = new Vue({
-    el: document.querySelector('#facultades'),
-    created: function created() {
-        this.obtenerFacultades();
-    },
-    data: {
-        facultades: [],
-        newFacultad: '',
-        errors: [],
-        fillFacultad: { 'id': 0, 'nombre': '' }
-    },
-    methods: {
-        obtenerFacultades: function obtenerFacultades() {
-            var _this = this;
-
-            var url = '../faculties/';
-            axios.get(url).then(function (response) {
-                _this.facultades = response.data;
-            });
-        },
-        editarFacultad: function editarFacultad(facultad) {
-            this.fillFacultad.id = facultad.id;
-            this.fillFacultad.nombre = facultad.nombre;
-            $('#editarFacultad').modal('show');
-        },
-        actualizarFacultad: function actualizarFacultad(id) {
-            var _this2 = this;
-
-            var url = './' + id;
-            axios.put(url, this.fillFacultad).then(function (response) {
-                _this2.obtenerFacultades();
-                _this2.fillFacultad = { 'id': '', 'keep': '' };
-                _this2.errors = [];
-                $('#editarFacultad').modal('hide');
-                toastr.success('El nombre de la facultad ha sido actualizado');
-            }).catch(function (error) {
-                _this2.errors = error;
-            });
-        },
-        eliminarFacultad: function eliminarFacultad(id) {
-            var url = '/facultades/' + id;
-            var t = this;
-            toastr.info("<br /><button type='button' id='confirmationDelete' class='btn clear'>Aceptar</button>", '¿Se requiere confirmación para eliminar?', {
-                closeButton: false,
-                allowHtml: true,
-                onShown: function onShown(toast) {
-                    $("#confirmationDelete").click(function () {
-                        axios.delete(url).then(function (response) {
-
-                            t.obtenerFacultades();
-                        });
-                    });
-                }
-            });
-        }
-
-    }
-});
-
 var carreras = new Vue({
     el: document.querySelector('#carreras'),
     created: function created() {
@@ -1059,41 +1000,37 @@ var carreras = new Vue({
         carreras: [],
         facultades: [],
         nombre: '',
-        facultad_id: 0,
-        fillCarrera: { 'id': 0, 'nombre': '', 'facultad_id': 0 },
+        fillCarrera: { 'id': 0, 'nombre': '' },
         errors: []
     },
     methods: {
         crearCarrera: function crearCarrera() {
-            var _this3 = this;
+            var _this = this;
 
             var url = '/carreras';
             axios.post(url, {
-                nombre: this.nombre,
-                facultad_id: this.facultad_id
+                nombre: this.nombre
             }).then(function (response) {
-                _this3.obtenerCarreras();
-                _this3.nombre = '';
-                _this3.facultad_id = 0;
-                _this3.errors = [];
+                _this.obtenerCarreras();
+                _this.nombre = '';
+                _this.errors = [];
                 $('#crearCarrera').modal('hide');
                 toastr.success('La carrera se guardó correctamente');
             }).catch(function (error) {
-                _this3.errors = error.response.data;
+                _this.errors = error.response.data;
             });;
         },
         obtenerCarreras: function obtenerCarreras() {
-            var _this4 = this;
+            var _this2 = this;
 
             var url = '../carriers';
             axios.get(url).then(function (response) {
-                _this4.carreras = response.data;
+                _this2.carreras = response.data;
             });
         },
         editarCarrera: function editarCarrera(carrera) {
             this.fillCarrera.id = carrera.id;
             this.fillCarrera.nombre = carrera.nombre;
-            $('#facultad_id').val(carrera.facultad_id);
             $('#editarCarrera').modal('show');
         },
         eliminarCarrera: function eliminarCarrera(id) {

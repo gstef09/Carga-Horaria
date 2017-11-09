@@ -14,8 +14,7 @@ class CarrerasController extends Controller
      */
     public function index()
     {
-        $facultades = Facultad::all();
-        return view('carreras.index', ['facultades' => $facultades]);
+        return view('carreras.index');
     }
 
     /**
@@ -25,7 +24,7 @@ class CarrerasController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -38,7 +37,6 @@ class CarrerasController extends Controller
     {
         $carrera = new Carrera;
         $carrera->nombre = $request->nombre;
-        $carrera->facultad_id = $request->facultad_id;
         $carrera->save();
         return;
     }
@@ -77,10 +75,9 @@ class CarrerasController extends Controller
     public function update(Request $request, $id)
     {
         $carrera->nombre = $request->nombre;
-        $carrera->facultad_id = $request->facultad_id;
         $carrera->update();
         return;
-        
+
     }
 
     /**
@@ -96,16 +93,6 @@ class CarrerasController extends Controller
     }
     public function obtenerCarreras(){
         $carreras = Carrera::all();
-        $data = [];
-        foreach($carreras as $c){
-            $ca=array();
-            $ca["id"] = $c->id;
-            $ca["nombre"] = $c->nombre;
-            $ca["facultad"] = $c->facultad;
-           
-            
-            array_push($data,$ca);
-        }
-        return $data;
+        return $carreras;
     }
 }
