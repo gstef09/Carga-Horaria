@@ -27,7 +27,7 @@
 </head>
 <body>
 
-<div id="app">
+<div >
 <nav class="navbar navbar-default menu">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -138,7 +138,7 @@
   
 </nav>
  
-<div>
+<div div="app">
     @yield('content')
 </div>
     <!-- jQuery 2.1.4 -->

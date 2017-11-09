@@ -37,6 +37,11 @@ Route::get('descargar-docentes', 'DocentesController@excel')->name('docentes.exc
 Route::resource('periodos','PeriodoController');
 Route::resource('materias','MateriasController');
 Route::resource('cursos','CursosController', ['except' => ['show']]);
+Route::resource('facultades','FacultadesController');
+Route::get('faculties','FacultadesController@obtenerFacultades');
+Route::get('carriers','CarrerasController@obtenerCarreras');
+Route::resource('carreras','CarrerasController');
+
 
 Route::resource('usuarios', 'UsersController', ['only' => ['index', 'create', 'store']]);
 

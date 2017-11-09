@@ -130,9 +130,25 @@
                         <input type="text" class="form-control" name="nacionalidad" id="nacionalidad" value="{{ old('nacionalidad') }}" placeholder="Nacionalidad">
                     </div>
                 </div>
+                <div class="col-md-2">
+                    <div class="form-group{{ $errors->has('facultad_id') ? ' has-error' : '' }}">
+                        <label for="facultad_id">Facultad*:</label>
+                       
+                        <select name="facultad_id" id="facultad_id" class="form-control">
+                        @foreach($facultades as $f)
+                            <option value="{{$f->id}}">
+                                {{$f->nombre}}
+                            </option>
+                            @endforeach
+                        </select>
+                       
+                    </div>
+                </div>
+                
             </div>
 
             <div class="row">
+            
                 <div class="col-md-6 col-md-offset-3">
                     <button type="submit" class="btn btn-primary">Guargar</button>
                 </div>

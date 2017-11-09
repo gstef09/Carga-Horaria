@@ -22,7 +22,11 @@ class Docente extends Model
         'direccion',
         'tipo_contrato',
         'estado',
+        'facultad_id'
+
     ];
+
+    
     
     protected $hidden = ['created_at','updated_at']; 
 
@@ -33,6 +37,10 @@ class Docente extends Model
     public function contrato()
     {
         return str_replace("_", " ", $this->tipo_contrato);
+    }
+
+    public function facultad(){
+        return $this->belongsTo('App\Facultad');
     }
 
 }

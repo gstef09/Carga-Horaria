@@ -29,7 +29,9 @@ class TableDocentes extends Migration
             $table->string('direccion');
             $table->enum('tipo_contrato',['Tiempo_Completo','Medio_Tiempo']);
             $table->enum('estado',['Contratado','Culminado','Renovado']);
+            $table->integer('facultad_id')->unsigned();
             $table->timestamps();
+            $table->foreign('facultad_id')->references('id')->on('facultades');
 
         });
             

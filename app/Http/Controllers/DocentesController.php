@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Docente;
+use App\Facultad;
 use Illuminate\Http\Request;
 use App\Http\Requests\DocentesRequest;
 use Maatwebsite\Excel\Facades\Excel;
@@ -28,8 +29,8 @@ class DocentesController extends Controller
      */
     public function create()
     {
-        //$docente = new Docente();
-        return view('docentes.create');
+        $facultades = Facultad::all();
+        return view('docentes.create',['facultades'=> $facultades]);
     }
 
     /**
@@ -59,7 +60,7 @@ class DocentesController extends Controller
         $docente->direccion = $request->direccion;
         $docente->tipo_contrato = $request->tipo_contrato;
         $docente->estado = $request->estado;
-
+        $docente->facultad_id = $request->facultad_id;
         if($docente->save())
             return redirect('/docentes');
         else
